@@ -16,8 +16,8 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(handlePanGesture(_:)))
-        view.addGestureRecognizer(panGestureRecognizer)
+//        let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(handlePanGesture(_:)))
+//        view.addGestureRecognizer(panGestureRecognizer)
     }
     
     @objc func handlePanGesture(_ gesture: UIPanGestureRecognizer) {
@@ -72,5 +72,36 @@ class ViewController: UIViewController {
     @IBAction func dragOutsideB(_ sender: UIButton) {
 //        print("\(#function) \(sender.currentTitle!)")
     }
+    
+//    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+//        print("view \(#function)", touches, event)
+//    }
+//
+    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+        for touch in touches {
+            let touchPoint = touch.location(in: view)
+            let targetView = view.hitTest(touchPoint, with: nil)
+            
+            if targetView is UIButton && currentButton == nil {
+                currentButton = targetView as? UIButton
+                print("Enter: \(currentButton?.currentTitle!)")
+                currentButton?.sendActions(for: .touchDragEnter)
+            }
+            
+            if currentButton != nil && !currentButton!.isEqual(targetView) {
+                print("Exit: \(currentButton?.currentTitle!)")
+                currentButton?.sendActions(for: .touchDragExit)
+                currentButton = nil
+            }
+        }
+    }
+//
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        currentButton = nil
+    }
+//
+//    override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
+//        print("view \(#function)", touches, event)
+//    }
 }
 
