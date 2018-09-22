@@ -15,41 +15,15 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        
-//        let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(handlePanGesture(_:)))
-//        view.addGestureRecognizer(panGestureRecognizer)
     }
     
-    @objc func handlePanGesture(_ gesture: UIPanGestureRecognizer) {
-        let point = gesture.location(in: view)
-        let targetView = view.hitTest(point, with: nil)
-        
-        switch gesture.state {
-        case .changed:
-            if targetView is UIButton && currentButton == nil {
-                currentButton = targetView as? UIButton
-                print("Enter: \(currentButton?.currentTitle!)")
-                currentButton?.sendActions(for: .touchDragEnter)
-            }
-            
-            if currentButton != nil && !currentButton!.isEqual(targetView) {
-                print("Exit: \(currentButton?.currentTitle!)")
-                currentButton?.sendActions(for: .touchDragExit)
-                currentButton = nil
-            }
-        case .ended:
-            currentButton = nil
-        default:
-            break
-        }
-    }
 
     @IBAction func dragEnterA(_ sender: UIButton) {
         print("\(#function) \(sender.currentTitle!)")
     }
     @IBAction func dragExitA(_ sender: UIButton) {
         print("\(#function) \(sender.currentTitle!)")
-        sender.resignFirstResponder()
+//        sender.resignFirstResponder()
     }
     @IBAction func dragInsideA(_ sender: UIButton) {
 //        print("\(#function) \(sender.currentTitle!)")
