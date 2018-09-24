@@ -22,10 +22,10 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="A"/>
                                 <connections>
-                                    <action selector="dragEnterA:" destination="BYZ-38-t0r" eventType="touchDragEnter" id="x7E-ks-9OA"/>
-                                    <action selector="dragExitA:" destination="BYZ-38-t0r" eventType="touchDragExit" id="PSa-ni-Q1n"/>
-                                    <action selector="dragInsideA:" destination="BYZ-38-t0r" eventType="touchDragInside" id="6ve-a7-gi9"/>
-                                    <action selector="dragOutsideA:" destination="BYZ-38-t0r" eventType="touchDragOutside" id="wuA-b2-D2m"/>
+                                    <action selector="dragEnterA:" destination="dkx-z0-nzr" eventType="touchDragEnter" id="xnO-Fq-Nho"/>
+                                    <action selector="dragExitA:" destination="dkx-z0-nzr" eventType="touchDragExit" id="Hr9-bz-TlZ"/>
+                                    <action selector="dragInsideA:" destination="dkx-z0-nzr" eventType="touchDragInside" id="NCi-Ps-WSi"/>
+                                    <action selector="dragOutsideA:" destination="dkx-z0-nzr" eventType="touchDragOutside" id="4GM-hb-QWM"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ov1-Mv-R6h">
@@ -43,6 +43,10 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="buttonA" destination="iTx-1L-hDu" id="m1o-eF-51K"/>
+                        <outlet property="buttonB" destination="Ov1-Mv-R6h" id="299-tz-v8J"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
